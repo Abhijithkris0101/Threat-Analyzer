@@ -9,7 +9,7 @@ An AI-powered security tool that scans emails and URLs for phishing, lookalike d
 | Version | File | AI Model | Cost |
 |---|---|---|---|
 | **Anthropic (Claude)** | `threat-analyzer.html` | Claude Sonnet 4 | ~$0.002–$0.005 per scan (BYOK) |
-| **Google Gemini (Free)** | `threat-analyzer-gemini.html` | Gemini 1.5 Flash | Free (up to 15 req/min) |
+| **Google Gemini (Free)** | `threat-analyzer-gemini.html` | Gemini 1.5-Flash-latest | Free (up to 15 req/min) |
 
 > **BYOK** = Bring Your Own Key. Each user provides their own API key. It never touches any server other than the respective AI provider.
 
@@ -94,7 +94,7 @@ and renders results on screen
 
 - Pure HTML, CSS, JavaScript — zero dependencies, zero build step
 - [Tabler Icons](https://tabler.io/icons) for UI icons (loaded via CDN)
-- Google Gemini 1.5 Flash API or Anthropic Claude Sonnet 4 API
+- Google Gemini 1.5-Flash-latest API or Anthropic Claude Sonnet 4 API
 - localStorage for API key persistence (browser-only, never transmitted elsewhere)
 - XSS protection on all rendered content via HTML escaping
 
