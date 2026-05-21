@@ -141,7 +141,7 @@
   <div class="free-bar">
     <i class="ti ti-info-circle" aria-hidden="true"></i>
     <div class="free-bar-text">
-      Uses <strong>Google Gemini Pro</strong> — free up to 15 requests/min, 1 million tokens/day. No credit card needed.
+      Uses <strong>Google Gemini-2.0-Flash</strong> — free up to 15 requests/min, 1 million tokens/day. No credit card needed.
       Get your key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com</a>.
     </div>
   </div>
@@ -214,8 +214,8 @@
 
 </div>
 <script>
-  const GEMINI_MODEL='gemini-pro';
-  const GEMINI_URL=`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+  const GEMINI_MODEL='gemini-2.0-flash';
+  const GEMINI_URL='https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}';
 
   const EMAIL_CHECKS=[
     {id:'sender',  label:'Sender identity & display name mismatch', icon:'ti-at'},
