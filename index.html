@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Analyzer</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#111;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
+    }
+
+    .container{
+      text-align:center;
+    }
+
+    h1{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    p{
+      color:#aaa;
+      margin-bottom:40px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    button{
+      padding:15px 30px;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .free{
+      background:#00c853;
+      color:white;
+    }
+
+    .pro{
+      background:#2962ff;
+      color:white;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Threat Analyzer</h1>
+
+  <p>Select a version to continue</p>
+
+  <div class="buttons">
+
+    <a href="threat-analyzer-gemini.html">
+      <button class="free">
+        Free Version (Gemini)
+      </button>
+    </a>
+
+    <a href="threat-analyzer.html">
+      <button class="pro">
+        Pro Version
+      </button>
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>
