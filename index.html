@@ -1,94 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threat Analyzer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    body{
-      font-family: Arial, sans-serif;
-      background:#111;
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      margin:0;
+<title>Threat Analyzer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    height:100vh;
+    overflow:hidden;
+    background:#050816;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Animated background */
+
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.5;
+    animation:float 10s infinite ease-in-out;
+}
+
+.circle:nth-child(1){
+    width:400px;
+    height:400px;
+    background:#2962ff;
+    top:-100px;
+    left:-100px;
+}
+
+.circle:nth-child(2){
+    width:350px;
+    height:350px;
+    background:#00c853;
+    bottom:-100px;
+    right:-100px;
+    animation-delay:2s;
+}
+
+.circle:nth-child(3){
+    width:250px;
+    height:250px;
+    background:#7c4dff;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
     }
+    50%{
+        transform:translateY(30px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Main card */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:900px;
+    padding:60px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+    0 0 50px rgba(0,0,0,0.4),
+    0 0 100px rgba(41,98,255,0.15);
+
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+
+    background:rgba(41,98,255,0.15);
+
+    color:#7aa2ff;
+
+    font-size:14px;
+    margin-bottom:25px;
+
+    border:1px solid rgba(122,162,255,0.2);
+}
+
+h1{
+    font-size:64px;
+    font-weight:700;
+    margin-bottom:20px;
+    line-height:1.1;
+
+    background:linear-gradient(
+    90deg,
+    #ffffff,
+    #7aa2ff,
+    #00e676
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+p{
+    color:#9aa4b2;
+    font-size:18px;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:50px;
+}
+
+/* Buttons */
+
+.buttons{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+}
+
+.btn button{
+    width:260px;
+    padding:20px;
+
+    border:none;
+    border-radius:18px;
+
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.free{
+    background:linear-gradient(
+    135deg,
+    #00c853,
+    #00e676
+    );
+
+    color:white;
+
+    box-shadow:
+    0 10px 40px rgba(0,200,83,0.35);
+}
+
+.pro{
+    background:linear-gradient(
+    135deg,
+    #2962ff,
+    #7c4dff
+    );
+
+    color:white;
+
+    box-shadow:
+    0 10px 40px rgba(41,98,255,0.35);
+}
+
+.btn button:hover{
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
+    filter:brightness(1.1);
+}
+
+.btn button:active{
+    transform:scale(0.98);
+}
+
+.footer{
+    margin-top:50px;
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
 
     .container{
-      text-align:center;
+        padding:40px 25px;
     }
 
     h1{
-      font-size:40px;
-      margin-bottom:10px;
+        font-size:42px;
     }
 
     p{
-      color:#aaa;
-      margin-bottom:40px;
+        font-size:16px;
     }
 
-    .buttons{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      flex-wrap:wrap;
+    .btn button{
+        width:100%;
     }
 
-    a{
-      text-decoration:none;
-    }
+}
 
-    button{
-      padding:15px 30px;
-      border:none;
-      border-radius:10px;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .free{
-      background:#00c853;
-      color:white;
-    }
-
-    .pro{
-      background:#2962ff;
-      color:white;
-    }
-
-    button:hover{
-      transform:scale(1.05);
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
+<div class="bg">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+</div>
+
 <div class="container">
-  <h1>Threat Analyzer</h1>
 
-  <p>Select a version to continue</p>
+    <div class="badge">
+        AI-Powered Cybersecurity Platform
+    </div>
 
-  <div class="buttons">
+    <h1>
+        Threat Analyzer
+    </h1>
 
-    <a href="threat-analyzer-gemini.html">
-      <button class="free">
-        Free Version (Gemini)
-      </button>
-    </a>
+    <p>
+        Analyze suspicious emails and URLs using advanced AI detection.
+        Detect phishing, malicious links, spoofed domains, social engineering,
+        and harmful patterns instantly.
+    </p>
 
-    <a href="threat-analyzer.html">
-      <button class="pro">
-        Pro Version
-      </button>
-    </a>
+    <div class="buttons">
 
-  </div>
+        <a class="btn" href="threat-analyzer-gemini.html">
+            <button class="free">
+                Free Version (Gemini)
+            </button>
+        </a>
+
+        <a class="btn" href="threat-analyzer.html">
+            <button class="pro">
+                Pro Version
+            </button>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Built for cybersecurity awareness & phishing detection
+    </div>
+
 </div>
 
 </body>
