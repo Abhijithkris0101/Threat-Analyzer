@@ -215,7 +215,7 @@
 </div>
 <script>
   const GEMINI_MODEL='gemini-2.0-flash';
-  const GEMINI_URL='https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}';
+  const GEMINI_URL=`https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent`;
 
   const EMAIL_CHECKS=[
     {id:'sender',  label:'Sender identity & display name mismatch', icon:'ti-at'},
@@ -406,6 +406,7 @@ Scores: 0-19 safe, 20-39 low, 40-59 medium, 60-79 high, 80-100 critical.
     const fullPrompt=buildPrompt(type)+'\n\n'+(type==='email'?`Analyze this email:\n\n${input}`:`Analyze this URL: ${input}`);
 
     try{
+      const key = localStorage.getItem("gemini_api_key");
       const resp=await fetch(`${GEMINI_URL}?key=${encodeURIComponent(key)}`,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
