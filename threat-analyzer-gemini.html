@@ -421,7 +421,8 @@ Scores: 0-19 safe, 20-39 low, 40-59 medium, 60-79 high, 80-100 critical.
       }
       const apiData=await resp.json();
       const rawText=apiData.candidates?.[0]?.content?.parts?.[0]?.text||'';
-      const cleaned=rawText.replace(/```json|```/g,'').trim();
+      const jsonMatch=rawText.match(/\{[\s\S]*\}/);
+      const cleaned=jsonMatch?jsonMatch[0]:rawText.replace(/```json|```/g,'').trim();
       const parsed=JSON.parse(cleaned);
 
       await animateChecks(checks,parsed.categories||{});
