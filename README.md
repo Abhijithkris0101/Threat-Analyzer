@@ -46,13 +46,13 @@ An AI-powered security tool that scans emails and URLs for phishing, lookalike d
 ## How to use
 
 ### Free version (Gemini)
-1. Open `threat-analyzer-gemini.html` in any browser
+1. Open `https://abhijithkris0101.github.io/Threat-Analyzer/` in any browser
 2. Get a free API key from [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey) — no credit card needed
 3. Paste the key into the tool and click Save
 4. Paste an email or URL and hit Scan
 
 ### Anthropic version (Claude)
-1. Open `threat-analyzer.html` in any browser
+1. Open `https://abhijithkris0101.github.io/Threat-Analyzer/` in any browser
 2. Get an API key from [console.anthropic.com](https://console.anthropic.com)
 3. Paste the key into the tool and click Save
 4. Paste an email or URL and hit Scan
